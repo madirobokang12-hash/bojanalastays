@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bojanala Stays | Airbnb and short-term rental management in Rustenburg</title>
+<meta name="description" content="Bojanala Stays runs your furnished home or apartment on Airbnb and Booking.com. No setup fee, no monthly fee. We only earn when you do.">
+<meta name="theme-color" content="#141A2E">
+<meta property="og:title" content="Bojanala Stays | We host your property. You keep the profit.">
+<meta property="og:description" content="Fully managed Airbnb and Booking.com hosting for property owners in Rustenburg. No setup fee, no monthly fee.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141A2E'/%3E%3Ccircle cx='11' cy='16' r='5' fill='none' stroke='%23F2A93B' stroke-width='2.5'/%3E%3Cpath d='M16 16h11M23 16v5M27 16v4' stroke='%23F2A93B' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Bojanala Stays","description":"Short-term rental management on Airbnb and Booking.com for property owners.","areaServed":"Rustenburg, South Africa"}
+</script>
+<style>
+:root{
+  --night:#141A2E; --night-2:#1E2745; --night-3:#2A3358;
+  --amber:#F2A93B; --amber-deep:#9A5208;
+  --fog:#EEF1F6; --paper:#FFFFFF;
+  --ink:#1B2033; --muted:#4A5169;
+  --focus:#9A5208;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:var(--display);line-height:1.12;letter-spacing:-0.02em;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--amber);color:var(--night);padding:10px 14px;border-radius:8px;z-index:50;font-weight:600}
+.skip:focus{left:8px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:10px;font:600 1rem/1.2 var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease,background-color .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--amber);color:var(--night)}
+.btn-primary:hover{background:#F7BC61}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-small{padding:10px 16px;font-size:.95rem}
+
+/* dark sections share a light focus ring */
+.site-header,.hero,.contact,.site-footer{--focus:#F2A93B}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:20;background:var(--night);color:#fff}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:700 1.35rem/1 var(--display);letter-spacing:-0.02em}
+.brand svg{width:28px;height:28px;color:var(--amber)}
+.nav{display:none;gap:26px}
+.nav a{text-decoration:none;font-weight:500;color:#D6DAE8}
+.nav a:hover{color:#fff}
+@media (min-width:820px){.nav{display:flex}}
+
+/* hero */
+.hero{background:var(--night);color:#fff;padding-block:clamp(44px,8vw,92px) clamp(52px,8vw,96px);overflow:hidden}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media (min-width:860px){.hero .wrap{grid-template-columns:1.15fr .85fr;gap:56px}}
+.hero h1{font-size:clamp(2.4rem,6.2vw,4.3rem);font-weight:700}
+.hero .lead{margin-top:20px;font-size:clamp(1.05rem,2.2vw,1.25rem);color:#D6DAE8;max-width:34em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .area{margin-top:22px;font-size:.95rem;color:#AEB4CB}
+.scene{width:100%;max-width:400px;justify-self:center}
+.scene svg{display:block;width:100%;height:auto}
+.win{fill:var(--night-3)}
+.win.on{animation:light 1s ease forwards;animation-delay:calc(var(--i) * .4s + .5s)}
+@keyframes light{to{fill:#F2A93B;filter:drop-shadow(0 0 7px rgba(242,169,59,.75))}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .win.on{animation:none;fill:#F2A93B;filter:drop-shadow(0 0 7px rgba(242,169,59,.75))}
+}
+
+/* sections */
+.section{padding-block:clamp(56px,8vw,96px)}
+.section.alt{background:var(--fog)}
+.section h2{font-size:clamp(1.9rem,4.2vw,2.75rem);max-width:18em}
+.section .intro{margin-top:14px;color:var(--muted);max-width:36em}
+
+/* benefits */
+.benefits{display:grid;gap:36px;margin-top:0}
+@media (min-width:820px){.benefits{grid-template-columns:repeat(3,1fr);gap:44px}}
+.benefit{border-top:4px solid var(--amber);padding-top:18px}
+.benefit h3{font-size:1.4rem}
+.benefit p{margin-top:10px;color:var(--muted)}
+
+/* steps */
+.steps{list-style:none;margin:40px 0 0;padding:0;max-width:44rem}
+.steps li{position:relative;display:grid;grid-template-columns:48px 1fr;gap:18px;padding-bottom:34px}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:"";position:absolute;left:23px;top:48px;bottom:4px;width:2px;background:#C5CBDB}
+.steps li:last-child::before{display:none}
+.step-n{width:48px;height:48px;border-radius:50%;background:var(--night);color:var(--amber);display:grid;place-items:center;font:700 1.25rem/1 var(--display)}
+.steps h3{font-size:1.3rem}
+.steps p{margin-top:6px;color:var(--muted)}
+
+/* services */
+.services{display:grid;gap:0 48px;margin:40px 0 0}
+@media (min-width:760px){.services{grid-template-columns:1fr 1fr}}
+.service{border-top:1px solid #C5CBDB;padding:20px 0 24px}
+.service dt{font:700 1.2rem/1.2 var(--display);letter-spacing:-0.01em}
+.service dd{margin:8px 0 0;color:var(--muted)}
+
+/* fit */
+.fit{display:grid;gap:40px;margin-top:36px}
+@media (min-width:760px){.fit{grid-template-columns:1fr 1fr;gap:56px}}
+.fit h3{font-size:1.35rem;margin-bottom:14px}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ticks li{position:relative;padding-left:32px}
+.ticks li::before{content:"\2713";position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:var(--night);color:var(--amber);font-size:.8rem;font-weight:700;display:grid;place-items:center;line-height:1}
+.fit .note{margin-top:32px;color:var(--muted);max-width:40em}
+
+/* faq */
+.faq{margin-top:36px;max-width:46rem}
+.faq details{border-bottom:1px solid #C5CBDB}
+.faq details:first-child{border-top:1px solid #C5CBDB}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;font:600 1.1rem/1.35 var(--body)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:var(--night);color:var(--amber);display:grid;place-items:center;font:600 1.2rem/1 var(--body);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 48px 22px 0;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--night);color:#fff;padding-block:clamp(56px,8vw,96px)}
+.contact .wrap{display:grid;gap:44px}
+@media (min-width:860px){.contact .wrap{grid-template-columns:1fr 1fr;gap:64px;align-items:start}}
+.contact h2{font-size:clamp(1.9rem,4.2vw,2.75rem)}
+.contact .intro{margin-top:14px;color:#D6DAE8;max-width:28em}
+.direct{margin-top:26px;display:grid;gap:10px}
+.direct a{color:var(--amber);font-weight:600}
+.direct[hidden],.direct a[hidden]{display:none}
+.gift{display:flex;align-items:flex-start;gap:14px;background:rgba(242,169,59,.12);border:1.5px solid rgba(242,169,59,.5);border-radius:12px;padding:16px 18px;margin-top:26px}
+.gift svg{flex:none;width:26px;height:26px;color:var(--amber);margin-top:2px}
+.gift p{color:#fff;font-size:.95rem;line-height:1.55}
+.gift strong{color:var(--amber)}
+.form{background:var(--paper);color:var(--ink);border-radius:14px;padding:clamp(20px,4vw,32px);--focus:#9A5208}
+.field{display:grid;gap:6px;margin-bottom:18px}
+.field label{font-weight:600;font-size:.95rem}
+.field input,.field textarea{font:inherit;color:inherit;padding:12px 14px;border:1.5px solid #9AA2BA;border-radius:8px;background:#fff;width:100%}
+.field textarea{min-height:88px;resize:vertical}
+.hint{font-size:.9rem;color:var(--muted)}
+.form .btn{width:100%}
+.status{margin-top:14px;font-size:.95rem;min-height:1.4em}
+.status.error{color:#A32020}
+
+/* footer */
+.site-footer{background:#0E1222;color:#AEB4CB;padding-block:30px;font-size:.9rem}
+.site-footer .wrap{display:grid;gap:8px}
+.site-footer strong{color:#fff}
+</style>
+</head>
+<body>
+
+<!-- Reusable key icon -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="key" viewBox="0 0 32 32">
+    <circle cx="11" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="11" cy="16" r="1.4" fill="currentColor"/>
+    <path d="M16 16h11M23 16v5M27 16v4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Bojanala Stays home">
+      <svg aria-hidden="true"><use href="#key"/></svg>
+      Bojanala Stays
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#services">What we handle</a>
+      <a href="#faq">Questions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-small" data-wa="Hi Bojanala Stays, I'd like a free property assessment." href="#contact">Message us</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1>We host your property. You keep the profit.</h1>
+        <p class="lead">Bojanala Stays runs your furnished home or apartment on Airbnb and Booking.com. No setup fee and no monthly fee. We only earn when you do.</p>
+        <div class="actions">
+          <a class="btn btn-primary" data-wa="Hi Bojanala Stays, I'd like a free property assessment." href="#contact">Get a free property assessment</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <p class="area">Serving property owners in Rustenburg and surrounds.</p>
+        <p class="area" style="color:var(--amber);margin-top:6px">Sign up now and get our Airbnb Masterclass ebook free.</p>
+      </div>
+      <div class="scene">
+        <svg viewBox="0 0 360 400" role="img" aria-label="An apartment building at night with its windows lighting up one by one">
+          <g fill="#F4F6FF">
+            <circle cx="24" cy="30" r="1.6" opacity=".7"/><circle cx="92" cy="18" r="1.2" opacity=".5"/>
+            <circle cx="150" cy="34" r="1.8" opacity=".8"/><circle cx="230" cy="14" r="1.3" opacity=".6"/>
+            <circle cx="290" cy="28" r="1.6" opacity=".7"/><circle cx="338" cy="52" r="1.2" opacity=".5"/>
+            <circle cx="16" cy="90" r="1.2" opacity=".5"/><circle cx="346" cy="120" r="1.6" opacity=".6"/>
+          </g>
+          <rect x="50" y="52" width="260" height="338" rx="6" fill="#1E2745"/>
+          <rect x="44" y="44" width="272" height="12" rx="4" fill="#2A3358"/>
+          <!-- row 1 -->
+          <rect class="win" x="70" y="80" width="40" height="42" rx="3"/>
+          <rect class="win on" style="--i:0" x="130" y="80" width="40" height="42" rx="3"/>
+          <rect class="win" x="190" y="80" width="40" height="42" rx="3"/>
+          <rect class="win" x="250" y="80" width="40" height="42" rx="3"/>
+          <!-- row 2 -->
+          <rect class="win" x="70" y="140" width="40" height="42" rx="3"/>
+          <rect class="win on" style="--i:5" x="130" y="140" width="40" height="42" rx="3"/>
+          <rect class="win" x="190" y="140" width="40" height="42" rx="3"/>
+          <rect class="win on" style="--i:1" x="250" y="140" width="40" height="42" rx="3"/>
+          <!-- row 3 -->
+          <rect class="win on" style="--i:2" x="70" y="200" width="40" height="42" rx="3"/>
+          <rect class="win" x="130" y="200" width="40" height="42" rx="3"/>
+          <rect class="win on" style="--i:3" x="190" y="200" width="40" height="42" rx="3"/>
+          <rect class="win" x="250" y="200" width="40" height="42" rx="3"/>
+          <!-- row 4 -->
+          <rect class="win" x="70" y="260" width="40" height="42" rx="3"/>
+          <rect class="win on" style="--i:4" x="130" y="260" width="40" height="42" rx="3"/>
+          <rect class="win" x="190" y="260" width="40" height="42" rx="3"/>
+          <rect class="win on" style="--i:6" x="250" y="260" width="40" height="42" rx="3"/>
+          <!-- door and key sign -->
+          <g color="#F2A93B"><use href="#key" x="168" y="304" width="24" height="24"/></g>
+          <rect x="163" y="336" width="34" height="54" rx="3" fill="#2A3358"/>
+          <circle cx="190" cy="364" r="2" fill="#F2A93B"/>
+          <rect x="0" y="390" width="360" height="4" fill="#2A3358"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why">
+    <div class="wrap">
+      <h2 id="why" style="margin-bottom:40px">Empty property should not mean empty pockets.</h2>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>Nothing upfront</h3>
+          <p>No setup fee and no monthly fee. We share the profit after costs, so we only earn when you do.</p>
+        </div>
+        <div class="benefit">
+          <h3>Handled from start to finish</h3>
+          <p>Listings, guests, cleaning and repairs. You never have to answer a guest message.</p>
+        </div>
+        <div class="benefit">
+          <h3>Clear numbers</h3>
+          <p>Every booking and every cost is on one monthly statement. Your listing stays in your name.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">How it works</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-n" aria-hidden="true">1</span>
+          <div><h3>Free assessment</h3><p>We visit, check your property is ready and show you what similar places nearby earn.</p></div>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">2</span>
+          <div><h3>Simple agreement</h3><p>We sign a short management agreement with a 3-month trial, so there is no long commitment.</p></div>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">3</span>
+          <div><h3>Set up and go live</h3><p>We prepare the property, photograph it and publish your listing on Airbnb and Booking.com.</p></div>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">4</span>
+          <div><h3>Host and report</h3><p>We host every guest. Each month you get a statement and your share of the profit.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <h2 id="services-h">What we handle</h2>
+      <p class="intro">Everything between a guest booking and a guest leaving a five-star review.</p>
+      <dl class="services">
+        <div class="service"><dt>Listings and photos</dt><dd>We write your listing, plan the photos and publish it on Airbnb and Booking.com.</dd></div>
+        <div class="service"><dt>Pricing</dt><dd>We adjust rates and minimum stays every week for weekends, holidays and local demand.</dd></div>
+        <div class="service"><dt>Guest messages</dt><dd>We answer enquiries and look after guests before, during and after every stay.</dd></div>
+        <div class="service"><dt>Cleaning and laundry</dt><dd>We schedule cleaners, check the work and restock supplies.</dd></div>
+        <div class="service"><dt>Maintenance</dt><dd>We arrange small repairs quickly and ask you before any larger ones.</dd></div>
+        <div class="service"><dt>Reviews and reports</dt><dd>We manage guest reviews and send a monthly statement of every booking and cost.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section alt" aria-labelledby="fit-h">
+    <div class="wrap">
+      <h2 id="fit-h">Is your property a fit?</h2>
+      <div class="fit">
+        <div>
+          <h3>Your property needs</h3>
+          <ul class="ticks">
+            <li>Furnished and in good repair</li>
+            <li>Wifi, hot water and a safe entrance</li>
+            <li>Permission for short-term letting</li>
+            <li>Insurance that covers short-term letting</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What stays with you</h3>
+          <ul class="ticks">
+            <li>Rates and levies</li>
+            <li>Electricity, water and wifi</li>
+            <li>Insurance</li>
+            <li>Furniture and major repairs</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Not sure about something on the list? Ask us during the free assessment. We will tell you what to add or check.</p>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <h2 id="faq-h">Questions owners ask</h2>
+      <div class="faq">
+        <details>
+          <summary>Do I pay anything upfront?</summary>
+          <p>No. There is no setup fee and no monthly fee. We take a share of the profit after costs such as platform fees, cleaning, laundry, supplies and approved repairs. We agree the split with you in writing before we start.</p>
+        </details>
+        <details>
+          <summary>Do you guarantee income?</summary>
+          <p>No. Income depends on location, condition, pricing and demand. We show you real comparable listings before you decide, so your expectations are realistic.</p>
+        </details>
+        <details>
+          <summary>What if a guest damages my property?</summary>
+          <p>We screen guests, set clear house rules and photograph the property at every turnover. If something is damaged we tell you within 24 hours and claim through the booking platform and your insurance where they apply.</p>
+        </details>
+        <details>
+          <summary>Can I still use my property myself?</summary>
+          <p>Yes. Give us 14 days' notice for the dates you want to block, subject to bookings already confirmed.</p>
+        </details>
+        <details>
+          <summary>Am I locked into a long contract?</summary>
+          <p>No. We start with a 3-month trial. After that, either of us can end the agreement with 30 days' notice.</p>
+        </details>
+        <details>
+          <summary>Are short-term rentals allowed at my property?</summary>
+          <p>It depends on zoning, your body corporate or HOA rules and your lease if you rent the property yourself. Please check before we start. We can help you ask the right questions.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-h">Get your free property assessment</h2>
+        <p class="intro">Tell us a little about your property. We will reply on WhatsApp and arrange a visit.</p>
+        <div class="gift">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          <p><strong>Free gift when you sign up.</strong> Get the Airbnb Masterclass ebook free when you join Bojanala Stays to host your property &mdash; yours to keep, even before your first booking.</p>
+        </div>
+        <div class="direct" id="direct" hidden>
+          <a id="wa-link" hidden href="#contact">Chat on WhatsApp</a>
+          <a id="mail-link" hidden href="#contact">Email us</a>
+        </div>
+      </div>
+      <form class="form" id="lead-form" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Your WhatsApp number</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field">
+          <label for="property">Your property</label>
+          <input id="property" name="property" type="text" placeholder="For example: 2-bed flat in Rustenburg" required>
+          <span class="hint">Type of property and area.</span>
+        </div>
+        <button class="btn btn-primary" type="submit">Send on WhatsApp</button>
+        <p class="hint" style="margin-top:12px">This opens WhatsApp with your details ready to send. We only use them to contact you about your property.</p>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Bojanala Stays</strong> &nbsp;|&nbsp; Short-term rental management, Rustenburg, South Africa</p>
+    <p>No income is guaranteed. Results depend on location, condition, pricing and demand.</p>
+    <p>&copy; <span id="year">2026</span> Bojanala Stays</p>
+  </div>
+</footer>
+
+<script>
+/* ---------------------------------------------------------
+   SET THESE TWO LINES BEFORE YOU PUBLISH
+   whatsapp: your number with country code, digits only.
+             Example: 082 123 4567 becomes "27821234567"
+   email:    optional. Leave "" to hide the email link.
+   --------------------------------------------------------- */
+var CONFIG = { whatsapp: "27767570171", email: "" };
+
+(function () {
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+
+  function waLink(text) {
+    var n = (CONFIG.whatsapp || '').replace(/\D/g, '');
+    return n ? 'https://wa.me/' + n + '?text=' + encodeURIComponent(text) : null;
+  }
+
+  // Buttons that open WhatsApp with a ready message
+  document.querySelectorAll('[data-wa]').forEach(function (a) {
+    var link = waLink(a.getAttribute('data-wa'));
+    if (link) { a.href = link; a.target = '_blank'; a.rel = 'noopener'; }
+  });
+
+  // Direct contact links in the contact section
+  var direct = document.getElementById('direct');
+  var wa = document.getElementById('wa-link');
+  var mail = document.getElementById('mail-link');
+  var showDirect = false;
+  var waDirect = waLink('Hi Bojanala Stays, I have a question about managing my property.');
+  if (waDirect) { wa.href = waDirect; wa.target = '_blank'; wa.rel = 'noopener'; wa.hidden = false; showDirect = true; }
+  if (CONFIG.email) { mail.href = 'mailto:' + CONFIG.email; mail.textContent = CONFIG.email; mail.hidden = false; showDirect = true; }
+  if (showDirect) direct.hidden = false;
+
+  // Lead form: opens WhatsApp with the details filled in
+  var form = document.getElementById('lead-form');
+  var status = document.getElementById('status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.className = 'status';
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim();
+    var prop = form.property.value.trim();
+    if (!name || !phone || !prop) {
+      status.className = 'status error';
+      status.textContent = 'Please fill in your name, WhatsApp number and property.';
+      return;
+    }
+    var msg = "Hi Bojanala Stays, my name is " + name + ". I'd like a free assessment for my property: " + prop +
+              ". You can reach me on " + phone + ".";
+    var link = waLink(msg);
+    if (!link) {
+      status.className = 'status error';
+      status.textContent = 'Sorry, we could not open WhatsApp from here. Please try again later.';
+      if (window.console) console.warn('Bojanala Stays: set CONFIG.whatsapp in index.html');
+      return;
+    }
+    status.textContent = 'Opening WhatsApp...';
+    window.open(link, '_blank', 'noopener');
+  });
+})();
+</script>
+</body>
+</html>
